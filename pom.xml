@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.bob.scala</groupId>
+    <artifactId>bkprocess-scala-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>process</module>
+        <module>webapi</module>
+    </modules>
+    <packaging>pom</packaging>
+    <name>bkprocess-scala-parent</name>
+    <description>a app using spray to clawer the bank process</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <scala.version>2.11.6</scala.version>
+        <springfox.version>2.3.1</springfox.version>
+        <spray.verion>1.3.3</spray.verion>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.spray</groupId>
+                <artifactId>spray-routing_2.11</artifactId>
+                <version>${spray.verion}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.spray</groupId>
+                <artifactId>spray-can_2.11</artifactId>
+                <version>${spray.verion}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.spray</groupId>
+                <artifactId>spray-client_2.11</artifactId>
+                <version>${spray.verion}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.spray</groupId>
+                <artifactId>spray-json_2.11</artifactId>
+                <version>1.3.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.json4s</groupId>
+                <artifactId>json4s-native_2.11</artifactId>
+                <version>3.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.json4s</groupId>
+                <artifactId>json4s-ext_2.11</artifactId>
+                <version>3.3.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>1.8.3</version>
+            </dependency>
+
+            <!--begin for html enscape-->
+            <dependency>
+                <groupId>org.unbescape</groupId>
+                <artifactId>unbescape</artifactId>
+                <version>1.1.3.RELEASE</version>
+            </dependency>
+            <!--end for html enscape,in fact,apache lang also has this function-->
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.4</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <!--add scala dependency begin-->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-compiler</artifactId>
+            <version>${scala.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!--add scala dependency end-->
+
+        <dependency>
+            <groupId>io.spray</groupId>
+            <artifactId>spray-client_2.11</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- plugin is for scala begin -->
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>compile-scala</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile-scala</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <recompileMode>incremental</recompileMode>
+                    <scalaVersion>${scala.version}</scalaVersion>
+                    <args>
+                        <arg>-deprecation</arg>
+                    </args>
+                    <jvmArgs>
+                        <jvmArg>-Xms64m</jvmArg>
+                        <jvmArg>-Xmx1024m</jvmArg>
+                    </jvmArgs>
+                </configuration>
+            </plugin>
+            <!-- plugin is for scala end -->
+
+        </plugins>
+    </build>
+</project>

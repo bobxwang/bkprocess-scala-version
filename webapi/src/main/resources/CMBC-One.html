@@ -1,0 +1,71 @@
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=GB2312">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>网上信用卡-申请进度查询</title>
+    <link type="text/css" rel="stylesheet" href="/images/styleWeb0/css/ceb.css">
+    <style type="text/css">
+    </style>
+    <link href="/css/ceb.css" rel="stylesheet" type="text/css">
+    <script src="/pubFunP.js"></script><script language="JavaScript" src="/js/cebH.js"></script><script language="JavaScript" src="/js/function.js"></script><script language="JavaScript" src="/js/setDate.js"></script><script>
+</script><script language="javascript">
+    var counter;
+    function init() {
+        counter=0;
+        return true;
+    }
+    function check(){
+        return true;
+    }
+
+    function setTxcode( code ){
+        document.eservice.txcode.value = code;
+        return true;
+    }
+</script>
+</head>
+<body onload="return init();">
+<form method="post" name="eservice" action="MainService?id=cmbc&amp;ShowStyleData=&amp;channelID=&amp;languageType=" onsubmit="return check();">
+    <input type="hidden" name="txcode" value="h40502"><input type="hidden" name="currPageNo" value="1"><input type="hidden" name="totalPageNum" value="1">
+    <table width="1023" border="0" cellspacing="0" cellpadding="0" id="mainTable">
+        <tr>
+            <td>
+                <table width="100%" height="21" border="0" cellpadding="0" cellspacing="0">
+                    <tr class="mainBg">
+                        <td width="" valign="bottom" id="menuName" nowrap></td><td width="371" align="right" valign="bottom"></td><td align="right" valign="bottom" nowrap id="otherFunctions"></td><td width="26" align="center" valign="middle"> 										&nbsp; 										</td>
+                    </tr>
+                </table>
+                <table width="100%" height="17" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td valign="bottom" background="/images/styleImages/mainbg.jpg">
+                            <table width="100" border="0" cellpadding="0" cellspacing="0">
+                                <tr valign="bottom">
+                                    <td width="45" nowrap> 														&nbsp; 													</td><td width="0" class="help" nowrap id="help">交易提示</td><td width="5" nowrap> 														&nbsp; 													</td><td width="0" nowrap><img src="/images/ques.gif" width="15" height="16"></td><td width="10" nowrap> 														&nbsp; 													</td><td width="0" class="demo" nowrap onclick="opennewwindow()">同步演示</td><td width="5" nowrap> 														&nbsp; 													</td><td width="0" nowrap><img src="/images/edu.gif" width="16" height="16"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%" border="0" id="formTable" cellspacing="1" cellpadding="0" bgcolor="#CCCCCC">
+                    <tr>
+                        <th nowrap bgcolor="#E4F3EC">申请书编号</th><th nowrap bgcolor="#E4F3EC">申请状态</th><th nowrap bgcolor="#E4F3EC">卡种</th><th nowrap bgcolor="#E4F3EC">主卡标志</th><th nowrap bgcolor="#E4F3EC">个人卡标志</th><th nowrap bgcolor="#E4F3EC">主卡状态</th>
+                    </tr>
+                    <tr>
+                        <td align="center" bgcolor="#FFFFFF">3086007492</td><td align="center" bgcolor="#FFFFFF">您的申请已批准，请注意查收卡片
+                        &nbsp; 							</td><td align="center" bgcolor="#FFFFFF">MC留学生金卡</td><td align="center" bgcolor="#FFFFFF">主卡</td><td align="center" bgcolor="#FFFFFF">个人卡</td><td align="center" bgcolor="#FFFFFF">正常
+                        &nbsp; </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" colspan="9" align="right" bgcolor="#FFFFFF">
+                            在此时间段内共返回1
+                            页查询结果								当前为第1
+                            页,
+                            <input name="inq" type="submit" class="button" value="查询第" onclick="setTxcode( 'h40502' ); if ( ! chkpginq( ) ) return  false;"><input name="inqPageNo" class="text" type="text" size="4" value="">页&nbsp;<input type="button" name="send" value=" 上一页 " class="button" onClick="if (!chkpgprev())  return false;">&nbsp;<input type="button" name="send" value=" 下一页 " class="button" onClick="if (!chkpgnext())  return false;">&nbsp;<input type="button" name="back" value=" 返 回 " class="button" onClick="gback();return false;"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
