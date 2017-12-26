@@ -41,7 +41,7 @@ class RestInterface(implicit val executionContext: ExecutionContext) extends Htt
 
     override def actorRefFactory = context
 
-    override def apiInfo = Some(new ApiInfo("CreditCard Process Query", "A Service to Query CreditCard Process", "", "wangx.freesoft@gmail.com", "", ""))
+    override def apiInfo = Some(new ApiInfo("CreditCard Process Query", "A Service to Query CreditCard Process", "", "sevenz_da_best@hotmail.com", "", ""))
 
     //authorizations, not used
   }
