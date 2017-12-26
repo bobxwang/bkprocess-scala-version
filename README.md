@@ -2,6 +2,7 @@
 
 * 一个基于spray的HTTP服务，本来想做各银行信用卡办卡进度的查询，不过只实现了建行跟民生，农业银行做了一半。
 * 结合了swagger进说服务入参出参的文件说明，应用起来后访问*/index.html进行查看
+* process模块是发送http请求到银行并解析的模块 
 
 # Preposition
 * [maven](http://maven.apache.org)
